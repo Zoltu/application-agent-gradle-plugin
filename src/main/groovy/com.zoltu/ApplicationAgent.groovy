@@ -25,8 +25,8 @@ class ApplicationAgentPlugin implements Plugin<Project> {
 					String agentFileName = agent.name
 
 					String forwardSlash = "/"
-					String unixRegex = $/exec "$$JAVACMD" "$${JVM_OPTS[@]}"/$
-					String unixReplacement = $/exec "$$JAVACMD" "$${JVM_OPTS[@]}" -javaagent:"$$APP_HOME/lib${forwardSlash}${agentFileName}"/$
+					String unixRegex = $/exec "$$JAVACMD" /$
+					String unixReplacement = $/exec "$$JAVACMD" -javaagent:"$$APP_HOME/lib${forwardSlash}${agentFileName}" /$
 					unixScript.text = unixScript.text.replace(unixRegex, unixReplacement)
 
 					String windowsRegex = $/"%JAVA_EXE%" %DEFAULT_JVM_OPTS%/$
